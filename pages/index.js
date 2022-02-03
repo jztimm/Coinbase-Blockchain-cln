@@ -9,9 +9,9 @@ export default function Home() {
         <Dashboard address={address} />
       ) : (
         <WalletConnect>
-          <button onClick={() => connectWallet('injected')}>
+          <Button onClick={() => connectWallet('injected')}>
             Connect Wallet
-          </button>
+          </Button>
           <Details>
             You need Chrome or Edge
             <br /> to be able to run this app
@@ -40,5 +40,14 @@ const WalletConnect = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+const Button = styled.div`
+  border: 1px solid #282b2f;
+  padding: 0.8rem;
+  font-size: 1.3rem;font-weight: 500;
+  border-radius: 0.4rem;
+  background-color: #3773f5;
+  color: #000;
+`
 
 const Details = styled.div``;
