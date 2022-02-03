@@ -13,8 +13,8 @@ export default function Home() {
             Connect Wallet
           </button>
           <Details>
-            You need Chrome or Edge to be
-            <br /> able to run this app.
+            You need Chrome or Edge
+            <br /> to be able to run this app
           </Details>
         </WalletConnect>
       )}
@@ -34,6 +34,11 @@ const Wrapper = styled.div`
 
 const Dashboard = styled.div``;
 
-const WalletConnect = styled.div``;
+const WalletConnect = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Details = styled.div``;
