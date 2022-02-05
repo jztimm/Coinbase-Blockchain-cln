@@ -12,7 +12,17 @@ const Coin = ({coin}) => {
                         <CoinIcon>
                             <Image src={coin.logo} alt={coin.name} />
                         </CoinIcon>
+                        <div>
+                            <Primary>{coin.name}</Primary>
+                            <Secondary>{coin.sign}</Secondary>
+                        </div>
                     </NameCol>
+                </div>
+                <div style={{flex: 2}}>
+                    <Primary>
+                        {'$'}
+                        {coin.balanceUsd}
+                    </Primary>
                 </div>
             </div>
         </Wrapper>
