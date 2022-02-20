@@ -24,6 +24,7 @@ height: 100vh;
 width: 100vw;
 background-color: #0a0b0d;
 color: white;
+overflow: hidden;
 `
 
 const MainContainer = styled.div`
