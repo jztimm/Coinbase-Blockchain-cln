@@ -66,4 +66,14 @@ export const coins = [
     change: 200.24,
     allocation: 17.89,
   },
+  // {
+  //   name: 'JT Token',
+  //   sign: 'JTT',
+  //   logo: ethLogo,
+  //   balanceUsd: 1200,
+  //   balanceCoin: 188.35664236,
+  //   priceUsd: 0.223,
+  //   change: 545.24,
+  //   allocation: 80.89,
+  // },
 ]
