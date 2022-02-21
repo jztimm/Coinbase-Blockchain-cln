@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import Header from '../components/Header'
-import Portfolio from '../components/Portfolio';
+import Main from '../components/Main';
 import Sidebar from '../components/Sidebar';
 
 const Dashboard = ({address}) => {
@@ -10,7 +10,7 @@ const Dashboard = ({address}) => {
             <Sidebar />
             <MainContainer>
                 <Header walletAddress={address}/>
-                <Portfolio />
+                <Main />
             </MainContainer>
         </Wrapper>
     );
