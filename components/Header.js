@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
+import Modal from 'react-modal'
+import {useRouter} from 'next/router'
+// import TransferModal from './modal/TransferModal
+import Link from 'next/link'
+
+Modal.setAppElement('#__next')
 
 const Header = ({walletAddress, connectWallet}) => {
+    const router = useRouter()
+
     return (
         <Wrapper>
             <Title>Assets</Title>
@@ -15,8 +23,16 @@ const Header = ({walletAddress, connectWallet}) => {
                 <Button style={{ backgroundColor: '#3773f5', color: '#000'}}>
                     Buy / Sell
                 </Button>
-                <Button>Send / Receive</Button>
+                <Link href={'/?transfer=1'}>
+                    <Button>Send / Receive</Button>
+                </Link>
             </ButtonsContainer>
+            <Modal
+            isOpen={!! router.query.transfer}
+            onRequestClose={() => router.push('/')}
+            >
+
+            </Modal>
         </Wrapper>
     )
 };
