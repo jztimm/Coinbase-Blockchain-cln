@@ -1,11 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {FaWallet} from 'react-icons/fa'
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '../../lib/sanity'
 
-const Transfer = () => {
+const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => {
 
     const [amount, setAmount] = useState()
     const [recipient, setRecipient] = useState('')
+    const [imageUrl, setImageUrl] = useState(null)
+
+    useEffect(() => {
+        console.log(selectedToken, '🔥')
+        const url = imageUrlBuilder(client).image(selectedToken.logo).url()
+        setImageUrl(url)
+    }, [selectedToken])
 
     return (
         <Wrapper>
@@ -14,8 +23,8 @@ const Transfer = () => {
                     <FlexInput
                         placeholder='0'
                         type="number"
-                        // value={amount} 
-                        // onChange={e => setAmount(e.target.value)}
+                        value={amount} 
+                        onChange={e => setAmount(e.target.value)}
                     />
                     <span>ETH</span>
                 </FlexInputContainer>
@@ -38,15 +47,22 @@ const Transfer = () => {
                     <FieldName>Pay with</FieldName>
                     <CoinSelectList>
                         <Icon>
-                            <img src={'https://cdn.shopify.com/s/files/1/0182/8937/files/1110790-robert-downey-jr-attending-the-premiere-950x0-1_cdfb4349-df3a-4c51-a23d-676c419ea790_1024x1024.jpg'}
-                            alt='' />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={imageUrl}
+                                alt='RDJ'
+                            />
                         </Icon>
-                        <CoinName>Ethereum</CoinName>
+                        <CoinName>Solana</CoinName>
                     </CoinSelectList>
                 </Row>
             </TransferFrom>
             <Row>
                 <Continue>Continue</Continue>
+            </Row>
+            <Row>
+                <BalanceTitle>ETH Balance</BalanceTitle>
+                <Balance>1.3 ETH</Balance>
             </Row>
         </Wrapper>
     )
@@ -189,3 +205,7 @@ const Continue = styled.button`
         background-color: #4a80f6;
     }
 `
+
+const BalanceTitle = styled.div``
+
+const Balance = styled.div``
