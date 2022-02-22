@@ -46,11 +46,11 @@ const TransferModal = ({sanityTokens, thirdWebTokens, walletAddress}) => {
     return (
         <Wrapper>
             <Selector>
-                <Option style={action == 'send' ? selectedStyle : unselectedStyle} onClick={() => setAction('send')}>
+                <Option style={action === 'send' ? selectedStyle : unselectedStyle} onClick={() => setAction('send')}>
                     <p>Send</p>
                 </Option>
 
-                <Option style={action == 'receive' ? selectedStyle : unselectedStyle} onClick={() => setAction('receive')}>
+                <Option style={action === 'receive' ? selectedStyle : unselectedStyle} onClick={() => setAction('receive')}>
                     <p>Receive</p>
                 </Option>
             </Selector>

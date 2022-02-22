@@ -13,7 +13,7 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
     const [balance, setBalance] = useState('Fetching...')
 
     useEffect(() => {
-        const activeToken = thirdWebTokens.find(token => token.address == selectedToken.contractAddress)
+        const activeToken = thirdWebTokens.find(token => token.address === selectedToken.contractAddress)
         setActiveThirdWebToken(activeToken)
     }, [thirdWebTokens, selectedToken])
 
