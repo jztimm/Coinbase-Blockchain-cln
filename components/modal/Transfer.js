@@ -5,6 +5,7 @@ import {FaWallet} from 'react-icons/fa'
 const Transfer = () => {
 
     const [amount, setAmount] = useState()
+    const [recipient, setRecipient] = useState('')
 
     return (
         <Wrapper>
@@ -26,8 +27,27 @@ const Transfer = () => {
                     <Icon>
                         <FaWallet />
                     </Icon>
+                    <Recipient
+                        placeholder="Address"
+                        value={recipient}
+                        onChange={e => setRecipient(e.target.value)}
+                    />
+                </Row>
+                <Divider />
+                <Row>
+                    <FieldName>Pay with</FieldName>
+                    <CoinSelectList>
+                        <Icon>
+                            <img src={'https://cdn.shopify.com/s/files/1/0182/8937/files/1110790-robert-downey-jr-attending-the-premiere-950x0-1_cdfb4349-df3a-4c51-a23d-676c419ea790_1024x1024.jpg'}
+                            alt='' />
+                        </Icon>
+                        <CoinName>Ethereum</CoinName>
+                    </CoinSelectList>
                 </Row>
             </TransferFrom>
+            <Row>
+                <Continue>Continue</Continue>
+            </Row>
         </Wrapper>
     )
 }
