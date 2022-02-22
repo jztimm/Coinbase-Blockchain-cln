@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import {FaWallet} from 'react-icons/fa'
 
 const Transfer = () => {
 
@@ -22,6 +23,9 @@ const Transfer = () => {
             <TransferFrom>
                 <Row>
                     <FieldName>To</FieldName>
+                    <Icon>
+                        <FaWallet />
+                    </Icon>
                 </Row>
             </TransferFrom>
         </Wrapper>
@@ -103,7 +107,7 @@ const FieldName = styled.div`
     padding-left: 2rem;
 `
 
-const icon = styled.div`
+const Icon = styled.div`
     margin-right: 1rem;
     height: 1.8rem;
     width: 1.8rem;
