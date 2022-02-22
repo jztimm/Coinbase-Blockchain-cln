@@ -19,6 +19,11 @@ const Transfer = () => {
                 </FlexInputContainer>
             <Warning style={{color: amount && '#0a0b0d'}}>Amount is a required field</Warning>
             </Amount>
+            <TransferFrom>
+                <Row>
+                    <FieldName>To</FieldName>
+                </Row>
+            </TransferFrom>
         </Wrapper>
     )
 }
@@ -79,7 +84,12 @@ const Divider = styled.div`
     border-bottom: 1px solid #282b2f;
 `
 
-const Rown = styled.div`
+const TransferFrom = styled.div`
+    border: 1px solid #282b2f;
+    border-radius: 0.4rem;
+`
+
+const Row = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,5 +137,31 @@ const CoinSelectList = styled.div`
 
     &:hover {
         cursor: pointer;
+    }
+`
+
+const CoinName = styled.div`
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 1.2rem;
+    text-wrap: wrap;
+    margin-right: 0.5rem;
+`
+
+const Continue = styled.button`
+    color: white;
+    width: 100%;
+    background-color: #3773f5;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #4a80f6;
     }
 `
