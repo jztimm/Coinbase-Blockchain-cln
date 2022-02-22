@@ -33,7 +33,6 @@ const Portfolio = ({thirdWebTokens, sanityTokens, walletAddress}) => {
                     return Number(balance.displayValue) * tokenToUSD[token.address]
                 })
             )
-            console.log('total balance: ', totalBalance)
             setWalletBalance(totalBalance.reduce((acc, curr) => acc + curr, 0))
         }
 
