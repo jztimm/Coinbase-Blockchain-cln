@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import imageUrlBuilder from '@sanity/image-url'
 import {client} from '../../lib/sanity'
-import {faCheck} from 'react-icons/fa'
+import {FaCheck, faCheck} from 'react-icons/fa'
 
 const CoinItem = ({
     token,
@@ -55,7 +55,19 @@ const CoinItem = ({
                 <Icon>
                     <img src={imageUrl} alt={token.name} />
                 </Icon>
+                <NameDetails>
+                    <Name>{token.name}</Name>
+                    <Symbol>{token.symbol}</Symbol>
+                </NameDetails>
             </Main>
+            <Balance>
+                {balance} {token.symbol}
+            </Balance>
+            <IsSelected>
+                {Boolean(selectedToken.contractAddress === token.contractAddress) && (
+                    <FaCheck />
+                )}
+            </IsSelected>
         </Wrapper>
     )
 }
@@ -104,9 +116,14 @@ const Name = styled.div`
 
 `
 
+const Symbol = styled.div`
+    color: #888f9b;
+    font-size: 0.8rem;
+`
+
 const Balance = styled.div``
 
 const IsSelected = styled.div`
-    margin-left: 0.50rem;
+    margin-left: 0.5rem;
     color: #3773f5;
 `

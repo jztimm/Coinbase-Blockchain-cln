@@ -31,14 +31,14 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
         if (activeThirdWebToken) {
             getBalance()
         }
-    }, [activeThirdWebToken, walletAddress])
+    }, [activeThirdWebToken])
 
     const sendCrypto = async (amount, recipient) => {
         console.log('Sending Crypto...')
 
         if (activeThirdWebToken && amount && recipient) {
-            const transaction = await activeThirdWebToken.transfer(recipient, amount.toString().concat('000000000000000000'))
-            console.log(transaction)
+            const tx = await activeThirdWebToken.transfer(recipient, amount.toString().concat('000000000000000000'))
+            console.log(tx)
             setAction('transferred')
         } else {
             console.error('missing data')
