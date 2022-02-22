@@ -9,6 +9,12 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
     const [amount, setAmount] = useState()
     const [recipient, setRecipient] = useState('')
     const [imageUrl, setImageUrl] = useState(null)
+    const [activeThirdWebToken, setActiveThirdWebToken] = useState()
+
+    useEffect(() => {
+        const activeToken = thirdWebTokens.find(token => token.address == selectedToken.contractAddress)
+        setActiveThirdWebToken(activeToken)
+    }, [thirdWebTokens, selectedToken])
 
     useEffect(() => {
         console.log(selectedToken, '🔥')
@@ -53,7 +59,7 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
                                 alt='RDJ'
                             />
                         </Icon>
-                        <CoinName>Solana</CoinName>
+                        <CoinName>{selectedToken.name}</CoinName>
                     </CoinSelectList>
                 </Row>
             </TransferFrom>
@@ -61,8 +67,8 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
                 <Continue>Continue</Continue>
             </Row>
             <Row>
-                <BalanceTitle>ETH Balance</BalanceTitle>
-                <Balance>1.3 ETH</Balance>
+                <BalanceTitle>{selectedToken.symbol} Balance</BalanceTitle>
+                <Balance>1.3 {selectedToken.symbol}</Balance>
             </Row>
         </Wrapper>
     )
