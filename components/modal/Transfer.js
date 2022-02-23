@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {FaWallet} from 'react-icons/fa'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../lib/sanity'
+import { ethers } from "ethers"
 
 const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => {
 
@@ -38,9 +39,11 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
 
         if (activeThirdWebToken && amount && recipient) {
             setAction('transferring')
+            // console.log(activeThirdWebToken, amount, recipient)
             const tx = await activeThirdWebToken.transfer(
-                recipient,
+                recipient, 
                 amount.toString().concat('000000000000000000')
+                // ethers.utils.parseEther(amount)
             )
             console.log(tx)
             setAction('transferred')

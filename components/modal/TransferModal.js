@@ -27,7 +27,11 @@ const TransferModal = ({sanityTokens, thirdWebTokens, walletAddress}) => {
                     walletAddress={walletAddress}
                 />
             case 'receive':
-                return <Receive />
+                return <Receive
+                    setAction={setAction}
+                    selectedToken={selectedToken}
+                    walletAddress={walletAddress}
+                />
             case 'select':
                 return (
                     <CoinSelector
@@ -41,18 +45,38 @@ const TransferModal = ({sanityTokens, thirdWebTokens, walletAddress}) => {
                 )
                 case 'transferring':
                     return (
-                        <div>
-                            <h2>Transferring...</h2>
+                        <div style={{
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            fontSize: '1.5rem',
+                        }}>
+                            <h2>Transfer in progress ...</h2>
                             <TailSpin
                                 height='100'
                                 width='100'
-                                color='grey'
+                                color='#3773f5'
                                 ariaLabel='loading'
                             />
                         </div>
                     )
                 case 'transferred':
-                    return <h2 style={{color: 'green'}}>Transfer Complete</h2>
+                    return 
+                        <div style={{
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            fontSize: '2rem',
+                            fontWeight: '600',
+                            color: '#27ad75'
+                        }}>
+                            <h2>Transfer Complete</h2>
+                        </div>
             default:
                 return <h2>send</h2>
         }
