@@ -42,8 +42,8 @@ const Transfer = ({selectedToken, setAction, thirdWebTokens, walletAddress}) => 
             // console.log(activeThirdWebToken, amount, recipient)
             const tx = await activeThirdWebToken.transfer(
                 recipient, 
-                amount.toString().concat('000000000000000000')
-                // ethers.utils.parseEther(amount)
+                amount.toString()
+                .concat('000000000000000000')
             )
             console.log(tx)
             setAction('transferred')
